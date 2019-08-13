@@ -7,7 +7,7 @@ Write-Output 'Prevent the progress meter from trying to access the console'
 $global:progressPreference = 'SilentlyContinue'
 
 Write-Output 'Getting a list of downloads'
-$downloadSource = 'https://binaries.sonarsource.com/Distribution/sonarqube/'
+$downloadSource = 'https://binaries.sonarsource.com//CommercialDistribution/sonarqube-developer/'
 $allDownloads = Invoke-WebRequest -Uri $downloadSource -UseBasicParsing
 $zipFiles = $allDownloads[0].Links | Where-Object { $_.href.EndsWith('.zip') -and !($_.href.contains('alpha') -or $_.href.contains('RC')) }
 
